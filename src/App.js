@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-const apiURL = 'https://appac.github.io/mlb-data-api-docs/' //url to link to api. not link to fetch
+const apiURL = 'https://official-joke-api.appspot.com/random_joke' 
 
 function App() {
   return (
