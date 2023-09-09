@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import { legacy_createStore as createStore } from 'redux';
+import thunk from 'redux-thunk'
 
 const apiURL = 'https://official-joke-api.appspot.com/random_joke' 
 
@@ -8,7 +9,7 @@ const apiURL = 'https://official-joke-api.appspot.com/random_joke'
 function App() {
   return (
     <div className="App">
-      Async Redux Project
+      Want To Hear a Joke?
     </div>
   );
 }
