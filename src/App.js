@@ -1,5 +1,5 @@
 import React from 'react';
-import thunk from 'redux-thunk'
+import { getJoke } from './actions/action';
 
 //const apiURL = 'https://official-joke-api.appspot.com/random_joke' 
 
@@ -8,10 +8,16 @@ import thunk from 'redux-thunk'
 function App() {
 
 
+  const handleClick = (e) => {
+e.preventDefault();
+
+  }
+
   
   return (
     <div className="App">
       Want To Hear a Joke?
+      <button onClick={handleClick}>Click me</button>
     </div>
   );
 }
