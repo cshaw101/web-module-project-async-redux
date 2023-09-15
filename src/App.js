@@ -1,23 +1,36 @@
-import React from 'react';
-import { getJoke } from './actions/action';
 
-//const apiURL = 'https://official-joke-api.appspot.com/random_joke' 
-
-//i want to get a joke and show the setup  and when you click on the joke the punchline folds down
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchJoke } from './actions/action'; 
 
 function App() {
+  const dispatch = useDispatch();
+  const joke = useSelector((state) => state.joke);
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
 
+  useEffect(() => {
+    dispatch(fetchJoke());
+  }, [dispatch]);
 
-  const handleClick = (e) => {
-e.preventDefault();
+  const handleNewJokeClick = () => {
+    
+    dispatch(fetchJoke());
+  };
 
-  }
-
-  
   return (
     <div className="App">
-      Want To Hear a Joke?
-      <button onClick={handleClick}>Click me</button>
+      <h1>Chuck Norris Joke</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : (
+        <>
+          <p>{joke}</p>
+          <button onClick={handleNewJokeClick}>New Joke</button> 
+        </>
+      )}
     </div>
   );
 }
